@@ -4,6 +4,6 @@ if [ -f "${HOME}/.bashrc" ]; then
 fi
 
 # load the local rc file after the fact
-if [ -f "${HOME}/.bash_profile_local" ]; then
-    source "${HOME}/.bash_profile_local"
+if [ -f "${HOME}/.bash_profile.local" ]; then
+    source "${HOME}/.bash_profile.local"
 fi

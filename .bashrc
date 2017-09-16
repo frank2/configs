@@ -29,6 +29,6 @@ case "$-" in
 esac
 
 # load the local rc file after the fact
-if [ -f "$HOME/.bashrc_local" ]; then
-    source "$HOME/.bashrc_local"
+if [ -f "$HOME/.bashrc.local" ]; then
+    source "$HOME/.bashrc.local"
 fi
