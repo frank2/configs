@@ -14,8 +14,8 @@
 
 		"information:additional":     { "fg": "mediumpurple", "bg": "gray0", "attrs": [] },
 		"information:regular":        { "fg": "brightpurple", "bg": "darkestpurple", "attrs": ["bold"] },
-		"information:highlighted":    { "fg": "mediumcyan", "bg": "mediumpurple", "attrs": [] },
-		"information:priority":       { "fg": "brightcyan", "bg": "darkestcyan", "attrs": [] },
+		"information:highlighted":    { "fg": "birghtcyan", "bg": "darkestpurple", "attrs": [] },
+		"information:priority":       { "fg": "white", "bg": "darkestpurple", "attrs": [] },
 		"warning:regular":            { "fg": "white", "bg": "brightpurple", "attrs": ["bold"] },
 		"critical:failure":           { "fg": "white", "bg": "darkestgreen", "attrs": [] },
 		"critical:success":           { "fg": "white", "bg": "darkestpurple", "attrs": [] },
