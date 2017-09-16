@@ -4,7 +4,7 @@
 	},
 	"ext": {
 		"shell": {
-			"colorscheme": "root",
+			"colorscheme": "purple",
 			"theme": "custom",
 			"local_themes": {
 				"continuation": "continuation",
@@ -12,7 +12,7 @@
 			}
 		},
 		"tmux": {
-			"colorscheme": "root",
+			"colorscheme": "purple",
 			"theme": "custom"
 		}
 	}
