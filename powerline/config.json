@@ -12,7 +12,7 @@
 			}
 		},
 		"tmux": {
-			"colorscheme": "purple",
+			"colorscheme": "cyan",
 			"theme": "custom"
 		}
 	}
