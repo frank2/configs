@@ -7,10 +7,10 @@
 		"bell_status":          {"fg": "red",        "bg": "gray0",    "attrs": []},
 		"window":               {"fg": "gray6",      "bg": "gray0",    "attrs": []},
 		"window:divider":       {"fg": "gray4",      "bg": "gray0",    "attrs": []},
-		"window:current":       {"fg": "mediumpurple", "bg": "darkestcyan", "attrs": []},
+		"window:current":       {"fg": "brightcyan", "bg": "darkestcyan", "attrs": []},
 		"window_name":          {"fg": "white",      "bg": "darkestcyan", "attrs": ["bold"]},
-		"session":              {"fg": "mediumcyan",   "bg": "brightpurple",   "attrs": ["bold"]},
-		"session:prefix":       {"fg": "brightpurple",     "bg": "mediumcyan", "attrs": ["bold"]},
+		"session":              {"fg": "mediumcyan",   "bg": "mediumpurple",   "attrs": ["bold"]},
+		"session:prefix":       {"fg": "mediumpurple",     "bg": "mediumcyan", "attrs": ["bold"]},
 
 		"information:additional":     { "fg": "mediumcyan", "bg": "gray0", "attrs": [] },
 		"information:regular":        { "fg": "brightcyan", "bg": "darkestcyan", "attrs": ["bold"] },
