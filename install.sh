@@ -121,3 +121,6 @@ if [ ! -d "$HOME/.config" ]; then
 fi
 
 relink "$CONFIGS_PROPER" "powerline" "$HOME/.config/powerline"
+
+echo "[+] Setup complete."
+exit 0
