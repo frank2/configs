@@ -46,7 +46,7 @@ function relink
         _config_target="$HOME/$_repo_file"
     fi
 
-    if [ -f "$_config_target" ]; then
+    if [ -e "$_config_target" ]; then
         mv "$_config_target" "${_config_target}.backup"
         
         if [ "$?" != "0" ]; then
@@ -110,6 +110,7 @@ echo "[+] replacing configs" 1>&2
 relink "$CONFIGS_PROPER" ".bashrc"
 relink "$CONFIGS_PROPER" ".bash_profile"
 relink "$CONFIGS_PROPER" ".tmux.conf"
+relink "$CONFIGS_PROPER" ".emacs.d"
 
 if [ ! -d "$HOME/.config" ]; then
     mkdir -p "$HOME/.config"
