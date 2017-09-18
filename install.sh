@@ -66,7 +66,7 @@ function relink
     echo "done!"
 }    
 
-CONFIGS_ROOT="$(realpath \"$(echo "$0" | sed -e 's/\/install.sh$//')\")"
+CONFIGS_ROOT="$(readlink -f "$(echo "$0" | sed -e 's/\/install.sh$//')")"
 CONFIGS_PROPER="$HOME/local/var/git/local/configs"
 
 if [ "$CONFIGS_ROOT" != "$CONFIGS_PROPER" -a ! -d "$CONFIGS_PROPER" ]; then
