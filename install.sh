@@ -66,12 +66,22 @@ function relink
     echo "done!"
 }    
 
-CONFIGS_ROOT="$(realpath $(echo $0 | sed -e 's/\/install.sh$//'))"
+CONFIGS_ROOT="$(realpath \"$(echo "$0" | sed -e 's/\/install.sh$//')\")"
 CONFIGS_PROPER="$HOME/local/var/git/local/configs"
 
-if [ "$CONFIGS_ROOT" != "$CONFIGS_PROPER" ]; then
+if [ "$CONFIGS_ROOT" != "$CONFIGS_PROPER" -a ! -d "$CONFIGS_PROPER" ]; then
     echo "[*] Root directory mismatch. Cloning to local."
     mkclone "$CONFIGS_ROOT" "$CONFIGS_PROPER"
+else
+    echo "[*] Root directory mismatch. Updating local."
+    pushd "$CONFIGS_PROPER"
+    git pull origin master
+
+    if [ "$?" != "0" ]; then
+        echo "configs: git failed" 1>&2
+        exit 1
+    fi
+    popd
 fi
 
 if [ -z "$(which powerline-daemon)" ]; then
