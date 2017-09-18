@@ -7,10 +7,10 @@ if [ ! -d "$CONFIGS" ]; then
     exit 1
 fi
 
-echo "[+] Updating configs"
+echo "[+] Updating configs" 1>&2
 
 pushd "$CONFIGS"
-git pull origin master
+git pull origin master || ( echo "update: git failed" 1>&2 && exit 1 )
 
 if [ "$?" != "0" ]; then
     echo "update: git failed" 1>&2
@@ -19,10 +19,10 @@ fi
 
 popd
 
-echo "[+] Repository updated. Running installer."
+echo "[+] Repository updated. Running installer." 1>&2
 
-"$CONFIGS/install.sh" || echo "update: installer failed" 1>&2 && exit 1
+"$CONFIGS/install.sh" || ( echo "update: installer failed" 1>&2 && exit 1 )
 
-echo "[+] Configs updated."
+echo "[+] Configs updated." 1>&2
 
 exit 0

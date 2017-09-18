@@ -119,8 +119,9 @@ echo "[+] replacing configs" 1>&2
 
 relink "$CONFIGS_PROPER" ".bashrc"
 relink "$CONFIGS_PROPER" ".bash_profile"
-relink "$CONFIGS_PROPER" ".tmux.conf"
 relink "$CONFIGS_PROPER" ".emacs.d"
+relink "$CONFIGS_PROPER" ".minttyrc"
+relink "$CONFIGS_PROPER" ".tmux.conf"
 
 if [ ! -d "$HOME/.config" ]; then
     mkdir -p "$HOME/.config"
