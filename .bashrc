@@ -16,14 +16,18 @@ alias vim="emacs -nw"
 
 case "$-" in
     *i*)
-        POWERLINESH="$HOME/local/var/git/github/powerline/powerline/powerline/bindings/bash/powerline.sh"
+        if [ -z "$TMUX" ]; then
+            tmux
+        else
+            POWERLINESH="$HOME/local/var/git/github/powerline/powerline/powerline/bindings/bash/powerline.sh"
 
-        # setup powerline
-        if [ -z "$INSIDE_EMACS" -a -f "$POWERLINESH" ]; then
-            powerline-daemon -q
-            POWERLINE_BASH_CONTINUATION=1
-            POWERLINE_BASH_SELECT=1
-            source "$POWERLINESH"
+            # setup powerline
+            if [ -z "$INSIDE_EMACS" -a -f "$POWERLINESH" ]; then
+                powerline-daemon -q
+                POWERLINE_BASH_CONTINUATION=1
+                POWERLINE_BASH_SELECT=1
+                source "$POWERLINESH"
+            fi
         fi
         ;;
 esac
