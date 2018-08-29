@@ -3,6 +3,7 @@
        "left": [
            {
                "function": "powerline.segments.common.time.date",
+               "before": "\u03a6 ",
                "args": {
                    "format": "%H:%M:%S",
                    "istime": 1
@@ -10,19 +11,25 @@
            },
          {
             "function": "powerline.segments.common.net.hostname",
-            "priority": 5
+            "priority": 5,
+            "before": "\u03a9 "
          },
          {
             "function": "powerline.segments.common.env.user",
-            "priority": 5
+            "priority": 5,
+            "before": "\u00b5 "
          },
          {
             "function": "powerline.segments.common.env.virtualenv",
-            "priority": 50
+            "priority": 50,
+            "before": "\u221a "
          },
          {
             "function": "powerline.segments.shell.cwd",
-            "priority": 5
+            "priority": 5,
+            "args": {
+               "ellipsis": "../"
+            }
          },
          {
             "function": "powerline.segments.shell.jobnum",
@@ -34,12 +41,24 @@
           },
           {
               "function": "powerline.segments.common.vcs.branch",
-              "priority": 10
+              "priority": 10,
+              "before": "\u00df "
           },
           {
               "function": "powerline.segments.shell.last_status",
-              "priority": 10
+              "priority": 10,
+              "before": "\u03a3 "
           }
       ]
+   },
+   "dividers": {
+      "left": {
+         "hard": "\u2593\u2592\u2591",
+         "soft": "\u2590 "
+      },
+      "right": {
+         "hard": "\u2591\u2592\u2593",
+         "soft": " \u258c"
+      }
    }
 }

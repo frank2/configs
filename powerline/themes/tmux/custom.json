@@ -7,14 +7,26 @@
 			{
 				"function": "powerline.segments.common.time.date",
 				"name": "time",
+            "before": "\u03a6 ",
 				"args": {
 					"format": "%H:%M",
 					"istime": true
 				}
 			},
 			{
-				"function": "powerline.segments.common.net.hostname"
+				"function": "powerline.segments.common.net.hostname",
+            "before": "\u03a9 "
 			}
 		]
-	}
+	},
+   "dividers": {
+      "left": {
+         "hard": "\u2593\u2592\u2591",
+         "soft": "\u2590 "
+      },
+      "right": {
+         "hard": "\u2591\u2592\u2593",
+         "soft": " \u258c"
+      }
+   }
 }
