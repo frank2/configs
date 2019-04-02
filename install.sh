@@ -37,6 +37,10 @@ function relink
     echo "done!" 1>&2
 }    
 
+# something's fishy
+
+_user="$(id -u -n)"
+HOME="$(getent passwd "$_user" | awk -F ':' '{ print $6 }')"
 CONFIGS_ROOT="$(readlink -f "$(echo "$0" | sed -e 's/\/install.sh$//')")"
 CONFIGS_PROPER="$HOME/local/var/git/local/configs"
     
@@ -71,6 +75,7 @@ echo "[+] replacing configs" 1>&2
 
 relink "$CONFIGS_PROPER" ".bashrc"
 relink "$CONFIGS_PROPER" ".bash_profile"
+relink "$CONFIGS_PROPER" ".bashrc_exports"
 relink "$CONFIGS_PROPER" ".emacs.d"
 relink "$CONFIGS_PROPER" ".minttyrc"
 relink "$CONFIGS_PROPER" ".tmux.conf"

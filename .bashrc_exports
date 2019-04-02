@@ -8,6 +8,8 @@ else
     export PS1="\n[ \w ]\n\t \u@\H \$ "
 fi
 
+export USER="$(id -u -n)"
+export HOME="$(getent passwd "$USER" | awk -F ':' '{ print $6 }')"
 export PATH="$HOME/.local/bin:$HOME/local/bin:$PATH"
 export PYTHONPATH="$HOME/local/lib/python:$PYTHONPATH"
 export EDITOR="emacs -nw"
