@@ -1,9 +1,13 @@
-# source the users bashrc if it exists
-if [ -f "${HOME}/.bashrc" ]; then
-  source "${HOME}/.bashrc"
+#!/bin/sh
+
+if [ -f "${HOME}/.bashrc_exports" ]; then
+    source "${HOME}/.bashrc_exports"
 fi
 
-# load the local rc file after the fact
-if [ -f "${HOME}/.bash_profile.local" ]; then
-    source "${HOME}/.bash_profile.local"
+if [ -f "${HOME}/.bashrc" ]; then
+    source "${HOME}/.bashrc"
+fi
+
+if [ -f "${HOME}/.bashrc.local" ]; then
+    source "${HOME}/.bashrc.local"
 fi

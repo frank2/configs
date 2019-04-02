@@ -1,18 +1,14 @@
-# if we're inside emacs, it only calls .bashrc because I guess it's not... interactive... even though it is.
+#!/usr/bin/env bash
+
+if [ -f "${HOME}/.bashrc_exports" ]; then
+    source "${HOME}/.bashrc_exports"
+fi
+
 if [ -n "$INSIDE_EMACS" ]; then
     export PS1="\n[ \w ]\n\t \u@\H emacs> "
 else
     export PS1="\n[ \w ]\n\t \u@\H \$ "
 fi
-
-export PATH="$HOME/.local/bin:$HOME/local/bin:$PATH"
-export PYTHONPATH="$HOME/local/lib/python:$PYTHONPATH"
-export EDITOR="emacs -nw"
-export TERM="xterm-256color"
-export LANG="en_US.UTF-8"
-
-alias ls="ls --color"
-alias vim="emacs -nw"
 
 case "$-" in
     *i*)
@@ -37,6 +33,6 @@ case "$-" in
 esac
 
 # load the local rc file after the fact
-if [ -f "$HOME/.bashrc.local" ]; then
-    source "$HOME/.bashrc.local"
+if [ -f "$HOME/.bash_profile.local" ]; then
+    source "$HOME/.bash_profile.local"
 fi
