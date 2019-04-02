@@ -77,7 +77,7 @@ if [ -z "$(which powerline-daemon)" ]; then
     fi
 
     pushd "$HOME/local/var/git/github/powerline" || fail "pushd failed"
-    pip install --user ./powerline || fail "pip failed"
+    python -m pip install --user ./powerline || fail "pip failed"
     echo "[+] successfully installed powerline" 1>&2
 else
     echo "[+] powerline installed" 1>&2
