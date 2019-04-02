@@ -4,6 +4,9 @@ function fail
 {
     _message="$@"
     echo "install: $_message" 1>&2
+    export HOME="$_home"
+    export _home=""
+    
     exit 1
 }
 
@@ -39,7 +42,9 @@ function relink
 
 # something's fishy
 _user="$(id -u -n)"
-HOME="$(getent passwd "$_user" | awk -F ':' '{ print $6 }')"
+export _home="$HOME" # you have to be fucking kidding me
+
+export HOME="$(getent passwd "$_user" | awk -F ':' '{ print $6 }')"
 
 # super fishy
 python -c 'import pip' &>/dev/null
