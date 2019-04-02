@@ -38,9 +38,21 @@ function relink
 }    
 
 # something's fishy
-
 _user="$(id -u -n)"
 HOME="$(getent passwd "$_user" | awk -F ':' '{ print $6 }')"
+
+# super fishy
+python -c 'import pip' &>/dev/null
+
+if [ "$?" -ne "0" ]; then
+    python -m ensurepip
+
+    if [ "$?" -ne "0" ]; then
+        echo 'pip could not be ensured' 1>&2
+        exit 4
+    fi
+fi
+
 CONFIGS_ROOT="$(readlink -f "$(echo "$0" | sed -e 's/\/install.sh$//')")"
 CONFIGS_PROPER="$HOME/local/var/git/local/configs"
     
