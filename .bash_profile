@@ -13,11 +13,7 @@ fi
 case "$-" in
     *i*)
         if [ -z "$TMUX" ]; then
-            if tmux info &> /dev/null; then
-                tmux a
-            else
-                tmux
-            fi
+            tmux attach || tmux new
         fi
         
         POWERLINESH="$HOME/local/var/git/github/powerline/powerline/powerline/bindings/bash/powerline.sh"
