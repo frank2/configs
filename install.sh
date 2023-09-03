@@ -2,7 +2,7 @@
 
 function fail
 {
-    _message="$@"
+    local _message="$@"
     echo "install: $_message" 1>&2
     export HOME="$_home"
     export _home=""
@@ -40,25 +40,7 @@ function relink
     echo "done!" 1>&2
 }    
 
-# something's fishy
-_user="$(id -u -n)"
-export _home="$HOME" # you have to be fucking kidding me
-
-export HOME="$(getent passwd "$_user" | awk -F ':' '{ print $6 }')"
-
-# super fishy
-python -c 'import pip' &>/dev/null
-
-if [ "$?" -ne "0" ]; then
-    python -m ensurepip
-
-    if [ "$?" -ne "0" ]; then
-        echo 'pip could not be ensured' 1>&2
-        exit 4
-    fi
-fi
-
-CONFIGS_ROOT="$(readlink -f "$(echo "$0" | sed -e 's/\/install.sh$//')")"
+CONFIGS_ROOT="$(dirname "$(readlink -f "$0")")"
 CONFIGS_PROPER="$HOME/local/var/git/local/configs"
     
 test -z "$(which git)" && fail "git not installed"
@@ -75,14 +57,14 @@ else
 fi
 
 if [ -z "$(which powerline-daemon)" ]; then
-    test -z "$(which pip)" && fail "pip not installed"
+    test -z "$(which python3)" && fail "python3 not installed"
     
     if [ ! -d "$HOME/local/var/git/github/powerline" ]; then
         mkclone "https://github.com/powerline/powerline.git" "$HOME/local/var/git/github/powerline/powerline" || fail "mkclone failed"
     fi
 
     pushd "$HOME/local/var/git/github/powerline" || fail "pushd failed"
-    python -m pip install --user ./powerline || fail "pip failed"
+    python3 -m pip install --user ./powerline || fail "pip failed"
     echo "[+] successfully installed powerline" 1>&2
 else
     echo "[+] powerline installed" 1>&2
